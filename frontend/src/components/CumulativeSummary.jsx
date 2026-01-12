@@ -83,7 +83,7 @@ export const CumulativeSummary = ({ yearData, currentMonth }) => {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={barChartData} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                <XAxis type="number" tickFormatter={(v) => `$${v}`} />
+                <XAxis type="number" tickFormatter={(v) => `${CURRENCY_SYMBOL} ${v}`} />
                 <YAxis type="category" dataKey="name" width={50} />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar 
