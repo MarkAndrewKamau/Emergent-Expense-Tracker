@@ -8,7 +8,7 @@ import {
   ArrowUpRight,
   ArrowDownRight
 } from 'lucide-react';
-import { formatCurrency } from '@/lib/expenseData';
+import { formatCurrency, CURRENCY_SYMBOL } from '@/lib/expenseData';
 
 export const SummaryCards = ({ totals, previousBalance, currentBalance }) => {
   const netChange = totals.deposit - totals.totalExpenses;
@@ -28,7 +28,7 @@ export const SummaryCards = ({ totals, previousBalance, currentBalance }) => {
             </div>
           </div>
           <p className="text-xl sm:text-2xl font-bold text-[hsl(var(--success))]">
-            +{formatCurrency(totals.deposit) || '0.00'}
+            +{CURRENCY_SYMBOL} {formatCurrency(totals.deposit) || '0.00'}
           </p>
           <p className="text-xs text-muted-foreground mt-1">
             This month
@@ -48,7 +48,7 @@ export const SummaryCards = ({ totals, previousBalance, currentBalance }) => {
             </div>
           </div>
           <p className="text-xl sm:text-2xl font-bold text-[hsl(var(--destructive))]">
-            -{formatCurrency(totals.totalExpenses) || '0.00'}
+            -{CURRENCY_SYMBOL} {formatCurrency(totals.totalExpenses) || '0.00'}
           </p>
           <p className="text-xs text-muted-foreground mt-1">
             This month
@@ -78,7 +78,7 @@ export const SummaryCards = ({ totals, previousBalance, currentBalance }) => {
           <p className={`text-xl sm:text-2xl font-bold ${
             isPositive ? 'text-[hsl(var(--success))]' : 'text-[hsl(var(--destructive))]'
           }`}>
-            {isPositive ? '+' : ''}{formatCurrency(netChange) || '0.00'}
+            {isPositive ? '+' : ''}{CURRENCY_SYMBOL} {formatCurrency(netChange) || '0.00'}
           </p>
           <p className="text-xs text-muted-foreground mt-1">
             This month
@@ -100,7 +100,7 @@ export const SummaryCards = ({ totals, previousBalance, currentBalance }) => {
           <p className={`text-xl sm:text-2xl font-bold ${
             currentBalance >= 0 ? 'text-foreground' : 'text-[hsl(var(--destructive))]'
           }`}>
-            {formatCurrency(currentBalance) || '0.00'}
+            {CURRENCY_SYMBOL} {formatCurrency(currentBalance) || '0.00'}
           </p>
           <p className="text-xs text-muted-foreground mt-1">
             Running total
