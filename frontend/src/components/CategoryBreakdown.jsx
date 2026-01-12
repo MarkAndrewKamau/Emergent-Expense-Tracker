@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { EXPENSE_CATEGORIES, formatCurrency } from '@/lib/expenseData';
+import { EXPENSE_CATEGORIES, formatCurrency, CURRENCY_SYMBOL } from '@/lib/expenseData';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 
 export const CategoryBreakdown = ({ totals, percentages }) => {
@@ -22,7 +22,7 @@ export const CategoryBreakdown = ({ totals, percentages }) => {
         <div className="bg-popover border border-border rounded-lg shadow-lg p-3">
           <p className="font-medium text-sm">{data.name}</p>
           <p className="text-muted-foreground text-xs">
-            ${formatCurrency(data.value)} ({data.percentage}%)
+            {CURRENCY_SYMBOL} {formatCurrency(data.value)} ({data.percentage}%)
           </p>
         </div>
       );
@@ -96,7 +96,7 @@ export const CategoryBreakdown = ({ totals, percentages }) => {
                       {percentage}%
                     </span>
                     <span className="text-sm font-semibold min-w-[80px] text-right">
-                      ${formatCurrency(amount) || '0.00'}
+                      {CURRENCY_SYMBOL} {formatCurrency(amount) || '0.00'}
                     </span>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ export const CategoryBreakdown = ({ totals, percentages }) => {
             <div className="flex items-center justify-between">
               <span className="text-sm font-semibold">Total Expenses</span>
               <span className="text-base font-bold text-[hsl(var(--destructive))]">
-                ${formatCurrency(totals.totalExpenses) || '0.00'}
+                {CURRENCY_SYMBOL} {formatCurrency(totals.totalExpenses) || '0.00'}
               </span>
             </div>
           </div>

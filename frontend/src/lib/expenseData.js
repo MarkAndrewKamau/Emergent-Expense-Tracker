@@ -173,16 +173,19 @@ export const getMonthStartingBalance = (yearData, monthName) => {
   return getMonthEndingBalance(yearData, MONTHS[monthIndex - 1]);
 };
 
-// Format currency
+// Format currency (Kenyan Shillings)
 export const formatCurrency = (value) => {
   if (value === null || value === undefined || value === '') return '';
   const num = parseFloat(value);
   if (isNaN(num)) return '';
-  return num.toLocaleString('en-US', {
+  return num.toLocaleString('en-KE', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
 };
+
+// Currency symbol
+export const CURRENCY_SYMBOL = 'KSh';
 
 // Sample data for demonstration
 export const createSampleData = () => {
