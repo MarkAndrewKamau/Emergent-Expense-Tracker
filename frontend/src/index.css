@@ -205,7 +205,7 @@ code {
     }
     
     .spreadsheet-row-highlight {
-        @apply bg-success/5;
+        background-color: hsl(var(--success) / 0.05);
     }
     
     /* Category Badges */
