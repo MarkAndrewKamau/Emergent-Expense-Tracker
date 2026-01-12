@@ -14,6 +14,7 @@ import {
   getMonthEndingBalance,
   getMonthStartingBalance,
   MONTHS,
+  CURRENCY_SYMBOL,
 } from '@/lib/expenseData';
 import { exportToExcel, exportMonthToExcel } from '@/lib/excelExport';
 
@@ -163,7 +164,7 @@ function App() {
           <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
             {currentMonth} Expenses
             <span className="text-xs font-normal text-muted-foreground">
-              (Starting balance: ${startingBalance.toFixed(2)})
+              (Starting balance: {CURRENCY_SYMBOL} {startingBalance.toFixed(2)})
             </span>
           </h2>
           <ExpenseSpreadsheet
