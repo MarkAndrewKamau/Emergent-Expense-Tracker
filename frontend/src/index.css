@@ -2,74 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
 body {
     margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
+        /* Primary - Deep Teal */
+        --primary: 168 76% 36%;
+        --primary-foreground: 0 0% 100%;
+        --primary-glow: 168 70% 45%;
+        
+        /* Background - Soft Cream */
+        --background: 40 33% 98%;
+        --foreground: 220 20% 15%;
+        
+        /* Card - Clean White */
         --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
+        --card-foreground: 220 20% 15%;
+        
+        /* Popover */
         --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
+        --popover-foreground: 220 20% 15%;
+        
+        /* Secondary - Soft Blue Gray */
+        --secondary: 210 20% 96%;
+        --secondary-foreground: 220 20% 25%;
+        
+        /* Muted - Warm Gray */
+        --muted: 40 15% 94%;
+        --muted-foreground: 220 10% 45%;
+        
+        /* Accent - Warm Coral */
+        --accent: 15 85% 60%;
+        --accent-foreground: 0 0% 100%;
+        
+        /* Destructive - Soft Red */
+        --destructive: 0 72% 55%;
+        --destructive-foreground: 0 0% 100%;
+        
+        /* Success - Fresh Green */
+        --success: 145 65% 42%;
+        --success-foreground: 0 0% 100%;
+        
+        /* Warning - Amber */
+        --warning: 38 92% 50%;
+        --warning-foreground: 0 0% 10%;
+        
+        /* Border & Input */
+        --border: 220 15% 88%;
+        --input: 220 15% 88%;
+        --ring: 168 76% 36%;
+        
+        /* Chart Colors - Expense Categories */
+        --chart-transport: 210 70% 50%;
+        --chart-food: 25 95% 55%;
+        --chart-medication: 350 70% 55%;
+        --chart-house: 45 85% 50%;
+        --chart-car: 280 60% 55%;
+        --chart-school: 170 65% 45%;
+        --chart-diverse: 200 20% 50%;
+        --chart-deposit: 145 65% 45%;
+        
+        /* Radius */
+        --radius: 0.625rem;
+        
+        /* Custom Shadows */
+        --shadow-soft: 0 2px 8px -2px hsl(220 20% 15% / 0.08), 0 4px 16px -4px hsl(220 20% 15% / 0.06);
+        --shadow-medium: 0 4px 12px -2px hsl(220 20% 15% / 0.1), 0 8px 24px -4px hsl(220 20% 15% / 0.08);
+        --shadow-elevated: 0 8px 24px -4px hsl(220 20% 15% / 0.12), 0 16px 48px -8px hsl(220 20% 15% / 0.1);
+        
+        /* Gradients */
+        --gradient-header: linear-gradient(135deg, hsl(168 76% 32%) 0%, hsl(168 70% 42%) 100%);
+        --gradient-accent: linear-gradient(135deg, hsl(15 85% 55%) 0%, hsl(25 90% 60%) 100%);
+        --gradient-success: linear-gradient(135deg, hsl(145 65% 38%) 0%, hsl(155 60% 45%) 100%);
+        --gradient-subtle: linear-gradient(180deg, hsl(40 33% 98%) 0%, hsl(40 20% 95%) 100%);
+        
+        /* Transitions */
+        --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        --primary: 168 65% 50%;
+        --primary-foreground: 0 0% 5%;
+        --primary-glow: 168 60% 60%;
+        
+        --background: 220 20% 8%;
+        --foreground: 40 20% 95%;
+        
+        --card: 220 18% 12%;
+        --card-foreground: 40 20% 95%;
+        
+        --popover: 220 18% 12%;
+        --popover-foreground: 40 20% 95%;
+        
+        --secondary: 220 15% 18%;
+        --secondary-foreground: 40 15% 90%;
+        
+        --muted: 220 15% 16%;
+        --muted-foreground: 220 10% 55%;
+        
+        --accent: 15 75% 55%;
+        --accent-foreground: 0 0% 100%;
+        
+        --destructive: 0 65% 50%;
+        --destructive-foreground: 0 0% 100%;
+        
+        --success: 145 55% 45%;
+        --success-foreground: 0 0% 100%;
+        
+        --warning: 38 85% 55%;
+        --warning-foreground: 0 0% 10%;
+        
+        --border: 220 15% 22%;
+        --input: 220 15% 22%;
+        --ring: 168 65% 50%;
+        
+        --gradient-header: linear-gradient(135deg, hsl(168 65% 45%) 0%, hsl(168 55% 55%) 100%);
+        --gradient-subtle: linear-gradient(180deg, hsl(220 20% 8%) 0%, hsl(220 18% 10%) 100%);
     }
 }
 
@@ -79,6 +140,155 @@ code {
     }
     body {
         @apply bg-background text-foreground;
+    }
+    
+    /* Typography Scale */
+    .heading-display {
+        font-family: 'Space Grotesk', sans-serif;
+        @apply text-3xl sm:text-4xl font-bold tracking-tight;
+    }
+    
+    .heading-large {
+        font-family: 'Space Grotesk', sans-serif;
+        @apply text-2xl sm:text-3xl font-semibold tracking-tight;
+    }
+    
+    .heading-medium {
+        font-family: 'Space Grotesk', sans-serif;
+        @apply text-xl sm:text-2xl font-semibold;
+    }
+    
+    .heading-small {
+        @apply text-lg font-semibold;
+    }
+    
+    .body-large {
+        @apply text-base leading-relaxed;
+    }
+    
+    .body-default {
+        @apply text-sm leading-relaxed;
+    }
+    
+    .body-small {
+        @apply text-xs leading-normal;
+    }
+}
+
+@layer components {
+    /* Spreadsheet Styles */
+    .spreadsheet-container {
+        @apply rounded-lg border border-border overflow-hidden;
+        box-shadow: var(--shadow-soft);
+    }
+    
+    .spreadsheet-header {
+        @apply bg-secondary/50 border-b border-border;
+    }
+    
+    .spreadsheet-cell {
+        @apply px-2 py-2 text-sm border-r border-border last:border-r-0;
+        min-width: 90px;
+    }
+    
+    .spreadsheet-cell-header {
+        @apply font-medium text-muted-foreground text-xs uppercase tracking-wide;
+    }
+    
+    .spreadsheet-cell-input {
+        @apply w-full bg-transparent border-0 focus:outline-none focus:ring-0 text-sm;
+    }
+    
+    .spreadsheet-row {
+        @apply border-b border-border last:border-b-0 hover:bg-muted/30;
+        transition: background-color var(--transition-fast);
+    }
+    
+    .spreadsheet-row-highlight {
+        @apply bg-success/5;
+    }
+    
+    /* Category Badges */
+    .category-badge {
+        @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+    }
+    
+    .category-transport { @apply bg-[hsl(210,70%,95%)] text-[hsl(210,70%,35%)]; }
+    .category-food { @apply bg-[hsl(25,95%,93%)] text-[hsl(25,95%,35%)]; }
+    .category-medication { @apply bg-[hsl(350,70%,93%)] text-[hsl(350,70%,35%)]; }
+    .category-house { @apply bg-[hsl(45,85%,90%)] text-[hsl(45,85%,35%)]; }
+    .category-car { @apply bg-[hsl(280,60%,93%)] text-[hsl(280,60%,35%)]; }
+    .category-school { @apply bg-[hsl(170,65%,90%)] text-[hsl(170,65%,35%)]; }
+    .category-diverse { @apply bg-[hsl(200,20%,92%)] text-[hsl(200,20%,35%)]; }
+    
+    /* Summary Cards */
+    .summary-card {
+        @apply rounded-xl p-4 relative overflow-hidden;
+        box-shadow: var(--shadow-soft);
+    }
+    
+    .summary-card::before {
+        content: '';
+        @apply absolute inset-0 opacity-10;
+        background: linear-gradient(135deg, currentColor 0%, transparent 60%);
+    }
+    
+    /* Month Tabs */
+    .month-tab {
+        @apply px-3 py-1.5 text-sm font-medium rounded-md;
+        transition: all var(--transition-fast);
+    }
+    
+    .month-tab:hover {
+        @apply bg-muted/60;
+    }
+    
+    .month-tab-active {
+        @apply bg-primary text-primary-foreground shadow-sm;
+    }
+    
+    /* Table Total Row */
+    .total-row {
+        @apply bg-muted/40 font-semibold;
+    }
+    
+    .percentage-row {
+        @apply bg-muted/20 text-muted-foreground text-xs;
+    }
+    
+    /* Glass Effect */
+    .glass-effect {
+        @apply backdrop-blur-sm bg-card/80;
+    }
+}
+
+@layer utilities {
+    /* Positive/Negative Values */
+    .value-positive {
+        @apply text-[hsl(var(--success))];
+    }
+    
+    .value-negative {
+        @apply text-[hsl(var(--destructive))];
+    }
+    
+    /* Subtle animations */
+    .animate-fade-in {
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(4px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-slide-up {
+        animation: slideUp 0.4s ease-out forwards;
+    }
+    
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 }
 
