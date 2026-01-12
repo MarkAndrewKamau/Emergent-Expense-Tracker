@@ -104,7 +104,7 @@ export const ExpenseSpreadsheet = ({
                   type="date"
                   value={row.date}
                   onChange={(e) => handleCellChange(index, 'date', e.target.value)}
-                  className="spreadsheet-cell-input h-8 text-xs"
+                  className="spreadsheet-cell-input h-8 text-xs border-transparent focus:border-input"
                 />
               </div>
               
@@ -114,8 +114,8 @@ export const ExpenseSpreadsheet = ({
                   type="text"
                   value={row.receiver}
                   onChange={(e) => handleCellChange(index, 'receiver', e.target.value)}
-                  placeholder="Who received"
-                  className="spreadsheet-cell-input h-8 text-xs"
+                  placeholder=""
+                  className="spreadsheet-cell-input h-8 text-xs border-transparent focus:border-input"
                 />
               </div>
               
@@ -125,8 +125,8 @@ export const ExpenseSpreadsheet = ({
                   type="text"
                   value={row.purpose}
                   onChange={(e) => handleCellChange(index, 'purpose', e.target.value)}
-                  placeholder="What for"
-                  className="spreadsheet-cell-input h-8 text-xs"
+                  placeholder=""
+                  className="spreadsheet-cell-input h-8 text-xs border-transparent focus:border-input"
                 />
               </div>
               
@@ -138,8 +138,8 @@ export const ExpenseSpreadsheet = ({
                   min="0"
                   value={row.deposit}
                   onChange={(e) => handleCellChange(index, 'deposit', e.target.value)}
-                  placeholder="0.00"
-                  className="spreadsheet-cell-input h-8 text-xs text-[hsl(var(--success))]"
+                  placeholder=""
+                  className="spreadsheet-cell-input h-8 text-xs text-[hsl(var(--success))] border-transparent focus:border-input"
                 />
               </div>
               
@@ -152,8 +152,8 @@ export const ExpenseSpreadsheet = ({
                     min="0"
                     value={row[cat.key]}
                     onChange={(e) => handleCellChange(index, cat.key, e.target.value)}
-                    placeholder="0.00"
-                    className="spreadsheet-cell-input h-8 text-xs"
+                    placeholder=""
+                    className="spreadsheet-cell-input h-8 text-xs border-transparent focus:border-input"
                   />
                 </div>
               ))}
