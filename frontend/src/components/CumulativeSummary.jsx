@@ -5,7 +5,8 @@ import {
   EXPENSE_CATEGORIES,
   calculateCumulativeTotals, 
   calculatePercentages,
-  formatCurrency 
+  formatCurrency,
+  CURRENCY_SYMBOL
 } from '@/lib/expenseData';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { TrendingUp, Calendar } from 'lucide-react';
@@ -37,7 +38,7 @@ export const CumulativeSummary = ({ yearData, currentMonth }) => {
         <div className="bg-popover border border-border rounded-lg shadow-lg p-3">
           <p className="font-medium text-sm">{data.fullName}</p>
           <p className="text-muted-foreground text-xs">
-            ${formatCurrency(data.amount)} ({data.percentage}%)
+            {CURRENCY_SYMBOL} {formatCurrency(data.amount)} ({data.percentage}%)
           </p>
         </div>
       );
@@ -70,7 +71,7 @@ export const CumulativeSummary = ({ yearData, currentMonth }) => {
                 ? 'text-[hsl(var(--success))]' 
                 : 'text-[hsl(var(--destructive))]'
             }`}>
-              ${formatCurrency(cumulative.deposit - cumulative.totalExpenses)}
+              {CURRENCY_SYMBOL} {formatCurrency(cumulative.deposit - cumulative.totalExpenses)}
             </p>
           </div>
         </div>
@@ -101,7 +102,7 @@ export const CumulativeSummary = ({ yearData, currentMonth }) => {
                 Total Deposits
               </p>
               <p className="text-lg font-bold text-[hsl(var(--success))]">
-                +${formatCurrency(cumulative.deposit)}
+                +{CURRENCY_SYMBOL} {formatCurrency(cumulative.deposit)}
               </p>
             </div>
             <div className="bg-muted/30 rounded-lg p-3">
@@ -109,7 +110,7 @@ export const CumulativeSummary = ({ yearData, currentMonth }) => {
                 Total Expenses
               </p>
               <p className="text-lg font-bold text-[hsl(var(--destructive))]">
-                -${formatCurrency(cumulative.totalExpenses)}
+                -{CURRENCY_SYMBOL} {formatCurrency(cumulative.totalExpenses)}
               </p>
             </div>
             
@@ -132,7 +133,7 @@ export const CumulativeSummary = ({ yearData, currentMonth }) => {
                         />
                         <span>{cat.fullName}</span>
                       </div>
-                      <span className="font-medium">${formatCurrency(cat.amount)}</span>
+                      <span className="font-medium">{CURRENCY_SYMBOL} {formatCurrency(cat.amount)}</span>
                     </div>
                   ))}
               </div>
